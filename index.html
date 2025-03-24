@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Transaksi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function showMenu(menu) {
+            document.getElementById('inputMenu').style.display = 'none';
+            document.getElementById('reportMenu').style.display = 'none';
+            document.getElementById('informasiMenu').style.display = 'none';
+            document.getElementById('welcomeText').style.display = 'none';
+
+            if (menu === 'input') {
+                document.getElementById('inputMenu').style.display = 'block';
+            } else if (menu === 'home') {
+                document.getElementById('welcomeText').style.display = 'block';
+            } else if (menu === 'laporan') {
+                document.getElementById('reportMenu').style.display = 'block';
+            } else if (menu === 'informasi') {
+                document.getElementById('informasiMenu').style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <div class="bg-blue-700 text-white text-center py-4">
+        <h1 class="text-3xl font-bold">Laporan Transaksi</h1>
+    </div>
+
+    <!-- Navbar -->
+    <div class="flex justify-center my-4">
+        <div class="bg-blue-900 text-white rounded-lg p-2 space-x-4">
+            <a href="#" onclick="showMenu('home')" class="hover:underline">Home</a>
+            <a href="#" onclick="showMenu('input')" class="hover:underline">Input</a>
+            <a href="#" onclick="showMenu('laporan')" class="hover:underline">Laporan</a>
+            <a href="#" onclick="showMenu('informasi')" class="hover:underline">Informasi</a>
+        </div>
+    </div>
+
+    <!-- Container Utama -->
+    <div class="max-w-4xl mx-auto bg-blue-200 p-6 rounded-lg shadow-lg">
+        <!-- Welcome Text -->
+        <div id="welcomeText">
+            <h2 class="text-2xl font-bold text-center mb-4">Selamat datang di Sistem Laporan Transaksi</h2>
+            <p class="text-center mb-6">Silakan pilih menu di atas untuk mengelola transaksi.</p>
+        </div>
+
+        <!-- Menu Input -->
+        <div id="inputMenu" class="bg-blue-300 p-4 rounded-lg shadow hidden">
+            <h3 class="text-xl font-bold mb-4">Input Data Barang</h3>
+            <form action="#" method="post" class="space-y-4 mb-8">
+                <div>
+                    <label class="block font-medium">Merek:</label>
+                    <input type="text" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label class="block font-medium">Harga:</label>
+                    <input type="number" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label class="block font-medium">Jumlah Stok:</label>
+                    <input type="number" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label class="block font-medium">Jumlah Terjual Harian:</label>
+                    <input type="number" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label class="block font-medium">Jumlah Terjual Bulanan:</label>
+                    <input type="number" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label class="block font-medium">Jumlah Terjual Tahunan:</label>
+                    <input type="number" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label class="block font-medium">Rata-rata Penjualan Harian:</label>
+                    <input type="number" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label class="block font-medium">Rata-rata Penjualan Bulanan:</label>
+                    <input type="number" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label class="block font-medium">Rata-rata Penjualan Tahunan:</label>
+                    <input type="number" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800">Simpan</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Menu Laporan -->
+        <div id="reportMenu" class="bg-blue-300 p-4 rounded-lg shadow hidden">
+            <h3 class="text-xl font-bold mb-4">Laporan Rekapitulasi Penjualan</h3>
+            <div class="flex space-x-4 mb-4">
+                <button class="bg-green-500 text-white px-4 py-2 rounded-lg">Rekapitulasi Penjualan Bulanan</button>
+                <button class="bg-green-500 text-white px-4 py-2 rounded-lg">Rekapitulasi Penjualan Tahunan</button>
+            </div>
+            <table class="w-full table-auto border border-collapse border-gray-400">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="border p-2">Produk</th>
+                        <th class="border p-2">Jumlah Terjual</th>
+                        <th class="border p-2">Waktu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white">
+                        <td class="border p-2 text-center">-</td>
+                        <td class="border p-2 text-center">-</td>
+                        <td class="border p-2 text-center">-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Menu Informasi -->
+        <div id="informasiMenu" class="bg-blue-300 p-4 rounded-lg shadow hidden">
+            <h3 class="text-xl font-bold mb-4">Cari Informasi Produk</h3>
+            <label for="product-name">Cari Nama Produk:</label>
+            <input type="text" id="product-name" placeholder="Masukkan nama produk" class="w-full p-2 border rounded">
+            <button class="bg-green-500 text-white px-4 py-2 rounded-lg mt-4">Cari</button>
+        </div>
+    </div>
+</body>
+</html>
